@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentoria · Método Lapidare — Débora Garzin</title>
+<meta name="description" content="Mentoria para estudantes de Nutrição e nutricionistas em início de carreira. Saia da insegurança e construa raciocínio clínico, posicionamento e autoridade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS — paleta Método Lapidare ============ */
+  :root{
+    --cream:#FAF6F0;      /* fundo base off-white quente */
+    --sand:#F0E6D9;       /* nude claro */
+    --nude:#E3D0C1;       /* nude da marca */
+    --gold:#A8803F;       /* dourado champanhe (texto/detalhe) */
+    --gold-soft:#C2A065;  /* dourado claro */
+    --espresso:#2A211A;   /* texto principal */
+    --cocoa:#1C1611;      /* seção escura */
+    --taupe:#6B5F54;      /* texto secundário */
+    --line:rgba(168,128,63,.28);
+    --maxw:1120px;
+    --r:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--espresso);
+    line-height:1.65;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.08;letter-spacing:.2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .serif-i{font-style:italic;color:var(--gold)}
+  .eyebrow{
+    font-size:12.5px;font-weight:600;letter-spacing:2.4px;text-transform:uppercase;
+    color:var(--gold);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"◆";font-size:9px;color:var(--gold-soft)}
+
+  /* ============ BOTÃO ============ */
+  .btn{
+    display:inline-block;background:var(--espresso);color:var(--cream);
+    font-family:'Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:.3px;
+    padding:17px 34px;border-radius:50px;text-decoration:none;cursor:pointer;
+    border:1px solid var(--espresso);transition:transform .2s ease,background .2s ease,box-shadow .2s ease;
+    box-shadow:0 6px 22px rgba(42,33,26,.16);
+  }
+  .btn:hover{transform:translateY(-2px);background:#3a2e23;box-shadow:0 10px 30px rgba(42,33,26,.24)}
+  .btn:focus-visible{outline:3px solid var(--gold-soft);outline-offset:3px}
+  .btn-gold{background:var(--gold);border-color:var(--gold)}
+  .btn-gold:hover{background:#96702f}
+  .micro{font-size:13.5px;color:var(--taupe);margin-top:14px}
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:sticky;top:0;z-index:50;background:rgba(250,246,240,.82);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:15px 22px;max-width:var(--maxw);margin:0 auto}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand .mark{
+    width:34px;height:34px;border:1.5px solid var(--gold);border-radius:8px;
+    display:grid;place-items:center;color:var(--gold);font-family:'Cormorant Garamond',serif;
+    font-weight:600;font-size:18px;transform:rotate(0deg);
+  }
+  .brand .name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:1.5px}
+  .brand .name small{display:block;font-family:'Inter';font-size:9px;letter-spacing:3px;color:var(--taupe);text-transform:uppercase;margin-top:-2px}
+  .nav .btn{padding:12px 24px;font-size:13.5px;box-shadow:none}
+  .nav-cta-wrap{display:none}
+  @media(min-width:720px){.nav-cta-wrap{display:block}}
+
+  /* ============ HERO ============ */
+  .hero{padding:54px 0 30px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;gap:34px;align-items:center}
+  .hero h1{font-size:clamp(2.6rem,9vw,4.4rem);margin:18px 0 20px}
+  .hero .sub{font-size:18px;color:var(--taupe);max-width:540px;margin-bottom:30px}
+  .hero .cta-row{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+  /* foto hero */
+  .photo{
+    position:relative;border-radius:var(--r);overflow:hidden;background:linear-gradient(150deg,var(--nude),var(--sand));
+    border:1px solid var(--line);
+  }
+  .photo-hero{aspect-ratio:4/5;width:100%}
+  .ph-label{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:10px;text-align:center;padding:20px;color:var(--taupe);
+  }
+  .ph-label svg{width:40px;height:40px;opacity:.5}
+  .ph-label span{font-size:13px;font-weight:500;letter-spacing:.3px;max-width:230px}
+  .ph-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(168,128,63,.1);padding:5px 12px;border-radius:50px}
+  @media(min-width:880px){
+    .hero{padding:72px 0 50px}
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}
+    .hero .cta-row{flex-direction:row;align-items:center;gap:18px}
+  }
+
+  /* ============ SEÇÕES GENÉRICAS ============ */
+  .block{padding:64px 0}
+  .block-sand{background:var(--sand)}
+  .block-nude{background:linear-gradient(180deg,var(--nude),var(--sand))}
+  .block-dark{background:var(--cocoa);color:#EFE6DA}
+  .block-dark h2,.block-dark h3{color:#fff}
+  .head-c{text-align:center;max-width:640px;margin:0 auto 12px}
+  .head-c h2{font-size:clamp(2rem,6vw,3rem);margin:14px 0 0}
+  .lead{font-size:18px;color:var(--taupe);text-align:center;max-width:620px;margin:18px auto 0}
+  .block-dark .lead{color:#C9BCAD}
+
+  /* ============ "VOCÊ SE RECONHECE" ============ */
+  .recog{max-width:760px;margin:34px auto 0;display:grid;gap:2px}
+  .recog li{
+    list-style:none;display:flex;gap:16px;align-items:flex-start;
+    padding:20px 0;border-bottom:1px solid var(--line);
+  }
+  .recog li:last-child{border-bottom:none}
+  .recog .dot{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);display:grid;place-items:center;margin-top:2px}
+  .recog .dot svg{width:13px;height:13px}
+  .recog p{font-size:16.5px}
+  .recog .close-line{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.5rem,4.5vw,2rem);color:var(--espresso);margin-top:40px;line-height:1.3}
+  .recog .close-line b{color:var(--gold);font-style:normal;font-weight:600}
+
+  /* ============ PILARES ============ */
+  .pillars{display:grid;gap:18px;margin-top:42px}
+  .pcard{background:var(--cream);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:transform .25s ease,box-shadow .25s ease}
+  .pcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(42,33,26,.1)}
+  .pcard .num{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--gold);letter-spacing:3px}
+  .pcard h3{font-size:1.7rem;margin:8px 0 10px}
+  .pcard p{font-size:15.5px;color:var(--taupe)}
+  @media(min-width:720px){.pillars{grid-template-columns:repeat(2,1fr);gap:22px}}
+
+  /* ============ AUTORIDADE ============ */
+  .auth-grid{display:grid;gap:34px;align-items:center}
+  .photo-auth{aspect-ratio:1/1;width:100%;max-width:430px;margin:0 auto}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{font-size:12.5px;font-weight:500;letter-spacing:.4px;color:var(--gold);border:1px solid var(--line);border-radius:50px;padding:7px 15px;background:rgba(168,128,63,.06)}
+  .auth-grid h2{font-size:clamp(2rem,5.5vw,2.8rem)}
+  .auth-grid p{color:var(--taupe);margin-top:18px;font-size:16.5px}
+  @media(min-width:880px){.auth-grid{grid-template-columns:.9fr 1.1fr;gap:50px}}
+
+  /* ============ PROVA SOCIAL ============ */
+  .stat-row{display:grid;gap:18px;margin:0 auto 40px;max-width:760px}
+  .stat{background:rgba(168,128,63,.08);border:1px solid var(--line);border-radius:var(--r);padding:26px;text-align:center}
+  .stat .big{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);line-height:1}
+  .stat .lbl{font-size:14px;color:var(--taupe);margin-top:8px}
+  @media(min-width:720px){.stat-row{grid-template-columns:repeat(3,1fr)}}
+  .testi{display:grid;gap:18px;max-width:900px;margin:0 auto}
+  .tcard{background:var(--cream);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+  .tcard .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;line-height:1.4;color:var(--espresso)}
+  .tcard .who{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .tcard .av{width:44px;height:44px;border-radius:50%;background:var(--nude);border:1px solid var(--line);flex:none;display:grid;place-items:center;color:var(--gold);font-size:10px;text-align:center;line-height:1.1}
+  .tcard .who b{font-family:'Inter';font-size:14.5px;font-weight:600}
+  .tcard .who span{font-size:12.5px;color:var(--taupe);display:block}
+  .ph-note{font-size:12px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-top:22px;opacity:.85}
+  @media(min-width:760px){.testi{grid-template-columns:repeat(2,1fr)}}
+
+  /* ============ PRA QUEM É ============ */
+  .fit{display:grid;gap:18px;margin-top:38px}
+  .fit-col{border-radius:var(--r);padding:30px 26px}
+  .fit-yes{background:rgba(168,128,63,.09);border:1px solid var(--line)}
+  .fit-no{background:var(--cream);border:1px solid var(--line)}
+  .fit-col h3{font-size:1.55rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .fit-col h3 svg{width:22px;height:22px}
+  .fit-col li{list-style:none;display:flex;gap:12px;padding:9px 0;font-size:15.5px;color:var(--taupe)}
+  .fit-col li svg{flex:none;width:18px;height:18px;margin-top:4px}
+  @media(min-width:760px){.fit{grid-template-columns:1fr 1fr;gap:22px}}
+
+  /* ============ COMO FUNCIONA ============ */
+  .how{max-width:760px;margin:34px auto 0;text-align:center}
+  .how .lead{margin-top:0}
+
+  /* ============ FAQ ============ */
+  .faq{max-width:760px;margin:36px auto 0}
+  .faq details{border-bottom:1px solid var(--line);padding:6px 0}
+  .faq summary{cursor:pointer;list-style:none;padding:20px 36px 20px 0;position:relative;font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--espresso)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:4px;top:18px;font-family:'Inter';font-size:24px;color:var(--gold);font-weight:400;transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq p{padding:0 0 22px;color:var(--taupe);font-size:16px;max-width:680px}
+
+  /* ============ CTA FINAL ============ */
+  .final{text-align:center}
+  .final h2{font-size:clamp(2.1rem,6.5vw,3.4rem);max-width:720px;margin:16px auto 0;color:#fff}
+  .final .lead{color:#C9BCAD;margin-bottom:34px}
+  .final .micro{color:#9a8c7c}
+
+  /* ============ FOOTER ============ */
+  footer{background:#15100C;color:#9a8c7c;padding:46px 0;text-align:center}
+  footer .brand{justify-content:center;margin-bottom:16px}
+  footer .brand .name{color:#EFE6DA}
+  footer .brand .name small{color:#7d7064}
+  footer a{color:var(--gold-soft);text-decoration:none}
+  footer .legal{font-size:12.5px;margin-top:14px;line-height:1.8}
+
+  /* ============ REVEAL ANIM ============ */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .btn:hover,.pcard:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<!-- ASSET: trocar o monograma .mark e o wordmark .name pelo LOGO OFICIAL do Método Lapidare (PNG transparente ou SVG) -->
+<header class="nav">
+  <div class="nav-in">
+    <div class="brand">
+      <div class="mark">ML</div>
+      <div class="name">Método Lapidare<small>Débora Garzin · Nutrição</small></div>
+    </div>
+    <div class="nav-cta-wrap">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZuhSMhgh4fqEnUqgaS5NsjhcN7vadr9ha5jRLgf8JM-9okA/viewform" class="btn" target="_blank" rel="noopener">Quero me candidatar</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Mentoria para estudantes e nutricionistas em início de carreira</span>
+      <h1>O diploma te formou.<br>A insegurança te paralisou.<br><span class="serif-i">Hora de te lapidar.</span></h1>
+      <p class="sub">Uma mentoria para sair da comparação, do medo de não ter pacientes e da sensação de estar perdida — e construir raciocínio clínico, posicionamento e autoridade de verdade.</p>
+      <div class="cta-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZuhSMhgh4fqEnUqgaS5NsjhcN7vadr9ha5jRLgf8JM-9okA/viewform" class="btn" target="_blank" rel="noopener">Quero me candidatar à mentoria</a>
+      </div>
+      <p class="micro">Vagas selecionadas por perfil. Você preenche o formulário e a equipe avalia sua candidatura.</p>
+    </div>
+    <div class="reveal">
+      <!-- ASSET: foto profissional da Débora, vertical (proporção 4:5), alta resolução -->
+      <div class="photo photo-hero">
+        <div class="ph-label">
+          <span class="ph-tag">Foto da Débora</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9a2 2 0 0 1 2-2h.93a2 2 0 0 0 1.66-.9l.82-1.2A2 2 0 0 1 10.07 4h3.86a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><circle cx="12" cy="13" r="3.2"/></svg>
+          <span>Foto profissional da Débora — vertical, alta resolução</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOCÊ SE RECONHECE ============ -->
+<section class="block block-sand">
+  <div class="wrap">
+    <div class="head-c reveal">
+      <span class="eyebrow">Talvez você se reconheça aqui</span>
+      <h2>A teoria você aprendeu.<br>A segurança, ninguém te ensinou.</h2>
+    </div>
+    <ul class="recog reveal">
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/></svg></span><p>Você terminou a faculdade sabendo a teoria, mas <b>trava na hora de conduzir uma consulta</b> de verdade.</p></li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/></svg></span><p>Tem medo de não ter pacientes — e <b>mais medo ainda de cobrar</b> pelo seu trabalho.</p></li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/></svg></span><p>Vive <b>se comparando</b> com outras nutricionistas que parecem ter tudo resolvido.</p></li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/></svg></span><p>Já comprou cursos, assistiu mil aulas grátis, consumiu conteúdo sem parar — <b>e ainda se sente perdida</b>.</p></li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/></svg></span><p>Sente que falta <b>posicionamento</b>: não sabe que nicho atender nem como se mostrar profissional.</p></li>
+    </ul>
+    <p class="recog close-line reveal">Não falta conteúdo pra você.<br><b>Falta direção.</b></p>
+  </div>
+</section>
+
+<!-- ============ O PROBLEMA REAL ============ -->
+<section class="block">
+  <div class="wrap">
+    <div class="head-c reveal">
+      <span class="eyebrow">O problema real</span>
+      <h2>Nunca foi falta de informação.</h2>
+      <p class="lead">Você está cercada de conteúdo gratuito. Salva post, faz print, assiste aula — e mesmo assim a insegurança não passa. Porque informação solta não vira segurança clínica. O que transforma uma estudante numa profissional de autoridade não é <em>acumular mais</em> — é aprender a <strong>pensar, conduzir e se posicionar</strong>. É exatamente isso que a mentoria faz com você.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section class="block block-nude">
+  <div class="wrap">
+    <div class="head-c reveal">
+      <span class="eyebrow">O que você desenvolve</span>
+      <h2>O Método Lapidare aplicado à sua carreira</h2>
+      <p class="lead">O mesmo método que uso para transformar a saúde das minhas pacientes, agora estruturado para lapidar a sua profissão — do bruto ao acabamento.</p>
+    </div>
+    <div class="pillars">
+      <div class="pcard reveal"><div class="num">01</div><h3>Raciocínio Clínico</h3><p>Aprenda a interpretar exames, montar conduta e tomar decisão com segurança — não no chute, não na cópia de protocolo.</p></div>
+      <div class="pcard reveal"><div class="num">02</div><h3>Posicionamento</h3><p>Descubra seu nicho, construa sua autoridade e pare de se comparar com quem está num momento diferente do seu.</p></div>
+      <div class="pcard reveal"><div class="num">03</div><h3>Segurança para Cobrar</h3><p>Entenda o valor do seu trabalho e aprenda a apresentar e cobrar sem medo, sem se sabotar no preço.</p></div>
+      <div class="pcard reveal"><div class="num">04</div><h3>Direção Profissional</h3><p>Saia da sensação de estar perdida com um caminho claro do que fazer agora, depois e onde quer chegar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUTORIDADE ============ -->
+<section class="block">
+  <div class="wrap auth-grid">
+    <div class="reveal">
+      <!-- ASSET: foto profissional da Débora (retrato/jaleco), proporção 1:1, alta resolução -->
+      <div class="photo photo-auth">
+        <div class="ph-label">
+          <span class="ph-tag">Foto da Débora</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9a2 2 0 0 1 2-2h.93a2 2 0 0 0 1.66-.9l.82-1.2A2 2 0 0 1 10.07 4h3.86a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><circle cx="12" cy="13" r="3.2"/></svg>
+          <span>Retrato profissional — quadrado, alta resolução</span>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Quem vai te lapidar</span>
+      <h2>Débora Garzin</h2>
+      <p>Sou nutricionista (CRN-3 70453) e criadora do Método Lapidare. Construí uma carreira e uma marca no atendimento à mulher — lipedema, endometriose, climatério — e hoje formo a próxima geração de nutricionistas que querem atender com segurança, clareza e autoridade.</p>
+      <p>Eu não ensino a acumular mais conteúdo. Ensino a pensar, conduzir e se posicionar — porque foi assim que eu mesma saí do início inseguro para virar referência no que faço.</p>
+      <div class="chips">
+        <span class="chip">CRN-3 70453</span>
+        <span class="chip">Criadora do Método Lapidare</span>
+        <span class="chip">Nutrição Feminina</span>
+        <span class="chip">Atualização internacional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROVA SOCIAL ============ -->
+<section class="block block-dark">
+  <div class="wrap">
+    <div class="head-c reveal">
+      <span class="eyebrow">Resultado que o método gera</span>
+      <h2>Quem começa a ser lapidada, muda de patamar</h2>
+    </div>
+    <!-- ASSET: substituir números e depoimentos por resultados/prints reais autorizados pela Débora -->
+    <div class="stat-row">
+      <div class="stat reveal"><div class="big">+100%</div><div class="lbl">de faturamento que uma nutri mentorada alcançou já no 1º mês*</div></div>
+      <div class="stat reveal"><div class="big">Clareza</div><div class="lbl">de nicho e posicionamento para parar de se comparar</div></div>
+      <div class="stat reveal"><div class="big">Segurança</div><div class="lbl">para conduzir consulta e cobrar sem medo</div></div>
+    </div>
+    <div class="testi">
+      <div class="tcard reveal" style="background:#241d16;border-color:rgba(168,128,63,.3)">
+        <p class="quote" style="color:#EFE6DA">“Depoimento real de uma mentorada aqui — antes e depois da mentoria, com o resultado que ela alcançou.”</p>
+        <div class="who"><div class="av">Foto</div><div><b style="color:#EFE6DA">Nome da mentorada</b><span>Nutricionista · cidade</span></div></div>
+      </div>
+      <div class="tcard reveal" style="background:#241d16;border-color:rgba(168,128,63,.3)">
+        <p class="quote" style="color:#EFE6DA">“Segundo depoimento real — foco na transformação de segurança, posicionamento ou faturamento.”</p>
+        <div class="who"><div class="av">Foto</div><div><b style="color:#EFE6DA">Nome da mentorada</b><span>Estudante de Nutrição</span></div></div>
+      </div>
+    </div>
+    <p class="ph-note">⚠ Espaço para depoimentos e números reais — substituir antes de publicar</p>
+  </div>
+</section>
+
+<!-- ============ PRA QUEM É / NÃO É ============ -->
+<section class="block block-sand">
+  <div class="wrap">
+    <div class="head-c reveal">
+      <span class="eyebrow">Honestidade antes de tudo</span>
+      <h2>Essa mentoria não é para todo mundo</h2>
+    </div>
+    <div class="fit">
+      <div class="fit-col fit-yes reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#A8803F" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>É para você se…</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#A8803F" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Você estuda Nutrição ou se formou há pouco e se sente insegura.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#A8803F" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Está cansada de só acumular conteúdo e quer aprender a conduzir.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#A8803F" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Quer parar de se comparar e construir o seu próprio caminho.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#A8803F" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Está disposta a se dedicar para construir segurança e direção.</li>
+        </ul>
+      </div>
+      <div class="fit-col fit-no reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#6B5F54" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Não é para você se…</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#6B5F54" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Procura fórmula mágica e resultado sem nenhum esforço.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#6B5F54" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Quer só mais um certificado para colecionar na parede.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#6B5F54" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Não está disposta a olhar pra dentro e mudar de verdade.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="block">
+  <div class="wrap how">
+    <div class="head-c reveal">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Encontros, prática e direcionamento</h2>
+    </div>
+    <p class="lead reveal">A mentoria combina encontros, direcionamento prático, raciocínio clínico, construção de posicionamento e segurança profissional. O formato — em grupo, individual ou híbrido — é definido a partir do seu perfil e dos seus objetivos, identificados já na sua candidatura.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ / OBJEÇÕES ============ -->
+<section class="block block-nude">
+  <div class="wrap">
+    <div class="head-c reveal">
+      <span class="eyebrow">Antes de você decidir</span>
+      <h2>O que costuma travar — e a verdade</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Não sei se é o momento certo pra mim.</summary><p>O momento certo raramente “chega” sozinho. Quem espera deixar de se sentir insegura para começar costuma esperar pra sempre. A mentoria existe justamente para você construir essa segurança no caminho, com direção — não depois de conquistá-la sozinha.</p></details>
+      <details><summary>Tenho medo de não conseguir acompanhar.</summary><p>A proposta é prática e conduzida passo a passo, respeitando sua fase de carreira — da estudante em início de graduação à recém-formada. Você não precisa já saber tudo. Precisa querer aprender a conduzir.</p></details>
+      <details><summary>E o investimento?</summary><p>A mentoria é uma construção da sua carreira, não um gasto avulso. O valor e as formas de pagamento são apresentados de acordo com o formato mais alinhado ao seu perfil — por isso a conversa começa pela candidatura, para entender onde você está antes de falar de proposta.</p></details>
+      <details><summary>Preciso conversar com alguém antes de decidir.</summary><p>É exatamente o que a candidatura permite. Você preenche o formulário, a equipe avalia seu perfil e, se fizer sentido, entra em contato pelo WhatsApp para te apresentar os próximos passos e tirar todas as suas dúvidas. Sem compromisso.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="block block-dark final">
+  <div class="wrap">
+    <span class="eyebrow reveal">Sua candidatura</span>
+    <h2 class="reveal">Sua carreira não precisa de mais um curso.<br>Precisa de <span class="serif-i" style="color:var(--gold-soft)">direção</span>.</h2>
+    <p class="lead reveal">As vagas são limitadas e selecionadas por perfil. Preencha o formulário de candidatura — se o seu perfil estiver alinhado, minha equipe entra em contato pelo WhatsApp para te apresentar os próximos passos.</p>
+    <div class="reveal">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZuhSMhgh4fqEnUqgaS5NsjhcN7vadr9ha5jRLgf8JM-9okA/viewform" class="btn btn-gold" target="_blank" rel="noopener">Quero me candidatar à mentoria</a>
+      <p class="micro">Leva poucos minutos. Após a análise, entramos em contato apenas com os perfis alinhados à proposta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <!-- ASSET: trocar pelo logo oficial -->
+    <div class="brand">
+      <div class="mark" style="border-color:var(--gold-soft);color:var(--gold-soft)">ML</div>
+      <div class="name">Método Lapidare<small>Débora Garzin · Nutrição</small></div>
+    </div>
+    <p class="legal">
+      Débora Garzin · Nutricionista · CRN-3 70453 · Método Lapidare<br>
+      <a href="https://www.instagram.com/deboragarzin.nutri" target="_blank" rel="noopener">@deboragarzin.nutri</a><br>
+      Esta mentoria é voltada ao desenvolvimento profissional de estudantes e nutricionistas. Não constitui orientação clínica individual.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll (respeita reduced-motion)
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('in')});return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
